@@ -11,7 +11,7 @@ module.exports = function(app, express, db){
       where: {
         id: req.params.id
       },
-      include: [db.Grudge]
+      include: [db.Grudges]
     })
       .then(function(user) {
         res.send(user);
