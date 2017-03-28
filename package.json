@@ -1,0 +1,26 @@
+{
+  "name": "grudge-bin",
+  "version": "1.0.0",
+  "description": "The only list that matters",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apslagle/grudge-bin.git"
+  },
+  "author": "Andrew Slagle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apslagle/grudge-bin/issues"
+  },
+  "dependencies": {
+    "angular-ui-router": "^0.4.2",
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+
+  },
+  "homepage": "https://github.com/apslagle/grudge-bin#readme"
+}
