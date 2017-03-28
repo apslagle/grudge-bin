@@ -1,7 +1,8 @@
 module.exports = function(app, express, db){
-  console.log('hit')
   app.post('/api/user', function(req, res) {
-    db.User.findOrCreate({where: {
+    console.log('Attempting to create new user');
+    console.log('Reqest body: ', req.body);
+    db.Users.findOrCreate({where: {
       name: req.body.name,
     }})
       .then(u=>res.send(u))
@@ -14,6 +15,8 @@ module.exports = function(app, express, db){
       }
     })
       .then(function(user) {
+        console.log("routes 23 " + JSON.stringify(req.body));
+        console.log("routes 24 " + JSON.stringify(user));
         user.update(req.body);
         res.send(user);
       });
@@ -53,6 +56,10 @@ module.exports = function(app, express, db){
   });
 
   app.post('/api/tasks/:email', function(req, res) {
+    console.log('Attempting to create new task');
+    console.log('Request Body: ', req.body);
+    console.log('email', req.params.email);
+
     db.Users.findOne({
       where: {
         email: req.params.email
