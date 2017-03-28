@@ -4,7 +4,7 @@
   "description": "The only list that matters",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,10 @@
     "angular-ui-router": "^0.4.2",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
-    "morgan": "^1.7.0"
-
+    "morgan": "^1.7.0",
+    "mongod": "^2.0.0",
+    "mongoose": "^4.7.7",
+    "nodemon": "^1.11.0"
   },
   "homepage": "https://github.com/apslagle/grudge-bin#readme"
 }
