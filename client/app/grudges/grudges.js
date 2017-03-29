@@ -7,6 +7,9 @@
 
   function GrudgesController($scope, GrudgeFactory, $stateParams) {
     var vm = this;
+    vm.grudgeCount = 0;
+    vm.forgiven = 0;
+    vm.unforgiven = 0;
     vm.userName = $stateParams.user;
     vm.render = function() {
       GrudgeFactory.findOrCreateUser(vm.userName)
@@ -17,6 +20,14 @@
         .then(grudges => {
           vm.grudges = grudges.data;
           console.log(vm.grudges);
+          vm.grudges.reduce((memo, grudge) => {
+            vm.grudgeCount++;
+            if (grudge.forgiven) {
+              vm.forgiven++;
+            } else {
+              vm.unforgiven++;
+            }
+          });
         })
     };
     vm.render();
@@ -35,6 +46,8 @@
           vm.offender = '';
           vm.offense = '';
           vm.grudges.push(newGrudge.data);
+          vm.grudgeCount++;
+          vm.unforgiven++;
           console.log(newGrudge);
         });
     };
