@@ -20,14 +20,7 @@
         .then(grudges => {
           vm.grudges = grudges.data;
           console.log(vm.grudges);
-          vm.grudges.reduce((memo, grudge) => {
-            vm.grudgeCount++;
-            if (grudge.forgiven) {
-              vm.forgiven++;
-            } else {
-              vm.unforgiven++;
-            }
-          });
+          vm.correctCount();
         })
     };
     vm.render();
@@ -51,5 +44,22 @@
           console.log(newGrudge);
         });
     };
+
+    vm.correctCount = function(){
+      var count = vm.grudges.reduce((count, grudge) => {
+        count.grudgeCount++;
+        if (grudge.forgiven) {
+          count.forgiven++;
+        } else {
+          count.unforgiven++;
+        }
+        return count;
+      }, {grudgeCount: 0, forgiven: 0, unforgiven: 0});
+      vm.grudgeCount = count.grudgeCount;
+      vm.forgiven = count.forgiven;
+      vm.unforgiven = count.unforgiven;
+    }
+
+    //vm.correctCount()
   }
 }());

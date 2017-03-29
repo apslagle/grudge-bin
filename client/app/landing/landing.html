@@ -3,15 +3,10 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
 </head>
 <body>
   <nav class="teal darken-4" role="navigation">
     <div class="nav-wrapper container">
-      <ul class="right">
-        <li ng-if="!vm.displayLoginButton()"><a href="#">Your List</a></li>
-        <li ng-if="vm.displayLoginButton()"><a ng-click="vm.authService.login()">Log In</a></li>
-      </ul>
     </div>
   </nav>
   <div class="section no-pad-bot" id="index-banner">
@@ -23,12 +18,14 @@
       </div>
     </div>
   </div>
-    <div class="input-field col s6">
+  <div class="container center">
+    <div class="input-field center" on-submit="grudges({user: vm.user})" style="width: 39%; margin-right: 30%; margin-left: 30%">
       <input ng-model="vm.user" id="first_name" type="text" class="validate">
-      <label for="first_name">Your User Name</label>
-      <button ui-sref="grudges({user: vm.user})" ng-click="vm.test()" class="btn waves-effect waves-light">Submit
+      <label for="first_name teal darken-4">Your User Name</label>
+      <button ui-sref="grudges({user: vm.user})" class="btn waves-effect waves-light teal darken-4">Submit
       </button>
     </div>
+  </div>
   <div class="container">
     <div class="section">
       <!--   Icon Section   -->
@@ -51,7 +48,7 @@
           <div class="icon-block">
             <h2 class="center light-teal-text darken-4"><i class="material-icons">settings</i></h2>
             <h5 class="center">Easy to work with</h5>
-            <p class="light">I am also always open to feedback and can answer any questions a user may have about Grudge Bin.</p>
+            <p class="light">Don't just hold a grudge. Help us hold one for you! I am also always open to feedback and can answer any questions a user may have about Grudge Bin.</p>
           </div>
         </div>
       </div>
@@ -65,7 +62,7 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Andrew Slagle</h5>
-          <p class="grey-text text-lighten-4">Former teacher, awesome programmer</p>
+          <p class="grey-text text-lighten-4">I love making great things</p>
         </div>
       </div>
     </div>
