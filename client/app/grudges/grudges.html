@@ -1,6 +1,15 @@
 <!-- App -->
 <div class="container" style="background-color: white">
-  <h4 class="tk-pollen-web ldblue">Welcome, {{vm.userName}}!</h4>
+  <div class="container">
+    <h1 class="light-blue-text text-lighten-2 center">{{vm.userName}}'s Grudges</h1>
+    <div class="row">
+      <div class="input-field col s11 center">
+        <input id="new-task" type="text" ng-model="vm.text">
+        <label for="new-task">New Task</label>
+      </div>
+      <a class="btn-floating btn-small waves-effect waves-light" ng-disabled="!vm.text.length" ng-click="vm.submit(vm.text, vm.payload.email)"><i class="material-icons">add</i></a>
+    </div>
+  </div>
   <h3 class="tk-pollen-web ldblue center">Grudges</h3>
   <div class="col">
     <!-- Add Main Goal New Page Button -->
@@ -12,9 +21,16 @@
     <div class="collapsible-header" style="padding-right: 0px">
       <ul class="collection with-header">
         <li class="collection-item avatar" ui-sref="grudge({user: vm.userName, gid: grudge.id, grudge: grudge})">
-          <i class="material-icons circle red darken-4">thumb_down</i>
-          <span class="title">{{grudge.offender}}</span><br>
-          <p class="center" for="{{grudge.id}}" style="display: initial;">{{grudge.offense}}</p>
+          <div ng-if="!grudge.forgiven">
+            <i class="material-icons circle red darken-4">thumb_down</i>
+          </div>
+          <div ng-if="grudge.forgiven">
+            <i class="material-icons circle green darken-4">thumb_up</i>
+          </div>
+          <h4 class="title">{{grudge.offender}}</h4>
+          <p class="center" for="{{grudge.id}}" style="display: initial;">{{grudge.offense}}<br>
+          Known to be a jerk since {{vm.formatDate(grudge.madSince)}}
+          </p>
           <!-- Delete Goal -->
           <a data-target="deleteGoalModal" class="secondary-content" style="color: black;" modal>
             <i tooltipped data-position="bottom" data-delay="100" data-tooltip="Delete Grudge" ng-click="vm.currentDeleteGoal = grudge" class="large material-icons right" data-target="deleteGoalModal" style="margin: 10px 15px 10px 0px;">delete_forever</i>
