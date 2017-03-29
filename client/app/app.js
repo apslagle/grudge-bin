@@ -26,10 +26,11 @@
           required: true
         }
       })
-      .state('grudge.gid', {
-        url: '/grudges/:gid',
+      .state('grudge', {
+        url: '/grudges/:user/:gid',
+        params: {grudge: null},
         controller: 'AGrudgeController',
-        templateUrl: '/app/a-grudge/grudge.html',
+        templateUrl: '/app/a-grudge/a-grudge.html',
         controllerAs: 'vm',
         data: {
           required: true

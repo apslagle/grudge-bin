@@ -26,6 +26,17 @@ module.exports = function(app, express, db){
       })
   });
 
+  app.get('/api/a-grudge/:id', function(req, res) {
+    db.Grudges.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(function(grudges) {
+        res.send(grudges);
+      })
+  });
+
   app.post('/api/grudge/:id', function(req, res) {
     db.Grudges.create({
       offender: req.body.offender,

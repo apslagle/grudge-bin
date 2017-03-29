@@ -27,13 +27,18 @@
         url: `api/grudge/${id}`
       });
 
-    const createGrudge = (id, offender, madSince, offense) =>
+    const getOneGrudge = (id) =>
+      $http({
+        method: 'GET',
+        url: `api/a-grudge/${id}`
+      });
+
+    const createGrudge = (id, offender, offense) =>
       $http({
         method: 'POST',
         url: `api/grudge/${id}`,
         data: {
           offender: offender,
-          madSince: madSince,
           offense: offense
         }
       });
