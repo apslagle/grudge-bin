@@ -7,14 +7,13 @@ module.exports = function(app, express, db){
   });
 
   app.get('/api/grudge/:id', function(req, res) {
-    db.Users.findOne({
+    db.Grudges.findAll({
       where: {
-        id: req.params.id
-      },
-      include: [db.Grudges]
+        user_id: req.params.id
+      }
     })
-      .then(function(user) {
-        res.send(user);
+      .then(function(grudges) {
+        res.send(grudges);
       })
   });
 
