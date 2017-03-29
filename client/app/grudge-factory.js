@@ -3,9 +3,9 @@
 
   angular
     .module('app')
-    .factory('ListFactory', ListFactory);
+    .factory('GrudgeFactory', GrudgeFactory);
 
-  function ListFactory($http) {
+  function GrudgeFactory($http) {
     const findOrCreateUser = (name) =>
       $http({
         method: 'POST',

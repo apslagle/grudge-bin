@@ -3,15 +3,13 @@
   'use strict';
 
   angular
-    .module('app', ['auth0.lock', 'angular-jwt', 'ui.router', 'angular-storage'])
+    .module('app', ['ui.router'])
     .config(config);
 
   function config($stateProvider, $urlRouterProvider, $locationProvider) {
-    console.log('router', $stateProvider);
-
     $stateProvider
       .state('landing', {
-        url: '/landing',
+        url: '/',
         controller: 'LandingController',
         templateUrl: 'app/landing/landing.html',
         controllerAs: 'vm',
@@ -19,7 +17,7 @@
           required: false
         }
       })
-      .state('grudges.user', {
+      .state('grudges', {
         url: '/grudges/:user',
         controller: 'GrudgesController',
         templateUrl: '/app/grudges/grudges.html',
@@ -38,8 +36,7 @@
         }
       });
 
-    $locationProvider.hashPrefix('');
-    $urlRouterProvider.otherwise('/landing');
+    $urlRouterProvider.otherwise('/');
   }
 
 })();

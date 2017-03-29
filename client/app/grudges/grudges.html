@@ -1,1 +1,51 @@
-grudges.html
+<!-- App -->
+<div class="container" style="background-color: white">
+  <h4 class="tk-pollen-web ldblue">Welcome, {{vm.payload.name}}!</h4>
+  <h3 class="tk-pollen-web ldblue center">Grudges</h3>
+  <div class="col">
+    <!-- Add Main Goal New Page Button -->
+  </div>
+  <br>
+
+  <!-- Current Goals -->
+  <div ng-repeat="grudge in vm.grudges | filter:{}">
+    <div class="collapsible-header" style="padding-right: 0px">
+      <ul class="collection with-header">
+        <li class="collection-header">
+
+          <!-- Goal Name -->
+          <label for="{{goal.id}}" style="display: initial;">{{goal.goalName}}</label>
+
+          <!-- Delete Goal -->
+          <a data-target="deleteGoalModal" style="color: black;" modal>
+            <i tooltipped data-position="bottom" data-delay="100" data-tooltip="Delete Goal" ng-click="vm.currentDeleteGoal = goal" class="material-icons right" data-target="deleteGoalModal" style="margin: 10px 15px 10px 0px;">delete_forever</i>
+          </a>
+          <!-- Delete Goal Modal -->
+          <div id="deleteGoalModal" class="modal" style="width: 40%; height: 25%;">
+            <div class="modal-content center">
+              <span class="tk-pollen-web ldblue" style="font-size: 125%;">Are you sure you want to delete your goal?</span>
+              <br>
+              <a class="waves-effect waves-light light-blue darken-4 btn modal-action modal-close tk-pollen-web" ng-click="vm.deleteGoal(vm.currentDeleteGoal.id)" style="color:white;">Yes</a>
+              <a class="waves-effect waves-light light-blue darken-4 btn modal-action modal-close tk-pollen-web" style="color:white;">No</a>
+            </div>
+          </div>
+
+          <!-- Goal Details Quantifiable -->
+          <a ui-sref="details" ng-show="!!goal.number" ng-click="vm.prepUpdate(goal)" data-target="goalDetailsModalQuantifiable" style="color: black;">
+            <i tooltipped data-position="bottom" data-delay="100" data-tooltip="View Goal Details" class="material-icons right" style="margin: 10px 15px 10px 0px;">equalizer</i>
+          </a>
+
+          <!-- Goal Details Non-Quantifiable -->
+          <a ui-sref="details" ng-show="!goal.number" ng-click="vm.prepUpdate(goal)" data-target="goalDetailsModalNonQuantifiable" style="color: black;">
+            <i tooltipped data-position="bottom" data-delay="100" data-tooltip="View Goal Details" class="material-icons right" style="margin: 10px 15px 10px 0px;">equalizer</i>
+          </a>
+
+          <!-- Create New Sub Goal -->
+          <a ng-click="vm.parentGoal = goal.id" data-target="newSubGoalModal" style="color: black;" modal>
+            <i tooltipped data-position="bottom" data-delay="100" data-tooltip="Create New Subgoal" class="material-icons right" style="margin: 10px 15px 10px 0px;">add</i>
+          </a>
+      </ul>
+    </div>
+  </div>
+</div>
+</tab-trap>

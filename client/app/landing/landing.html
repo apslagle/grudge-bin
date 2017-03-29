@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+</head>
+<body>
+  <nav class="teal darken-4" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="right">
+        <li ng-if="!vm.displayLoginButton()"><a href="#">Your List</a></li>
+        <li ng-if="vm.displayLoginButton()"><a ng-click="vm.authService.login()">Log In</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center deep-orange-text darken-4">Grudge Bin</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">The most infuriating list you'll ever need!</h5>
+      </div>
+    </div>
+  </div>
+    <div class="input-field col s6">
+      <input ng-model="vm.user" id="first_name" type="text" class="validate">
+      <label for="first_name">Your User Name</label>
+      <button ui-sref="grudges({user: vm.user})" ng-click="vm.test()" class="btn waves-effect waves-light">Submit
+      </button>
+    </div>
+  <div class="container">
+    <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-teal-text darken-4"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Why get Grudge Bin?</h5>
+            <p class="light">Some one cut you off in traffic? Did a coworker literally eat your lunch? Are you just mad all the time? You could take a deep breath and forget about it. Or, you could let Grudge Bin remember it for you!</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-teal-text darken-4"><i class="material-icons">group</i></h2>
+            <h5 class="center">Get Even</h5>
+            <p class="light">How many people have met their downfall by just leaving their enemies list lying around. Now, keep track of the people who have wronged you in the cloud.</p>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-teal-text darken-4"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+            <p class="light">I am also always open to feedback and can answer any questions a user may have about Grudge Bin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="section">
+    </div>
+  </div>
+  <footer class="page-footer deep-orange darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Andrew Slagle</h5>
+          <p class="grey-text text-lighten-4">Former teacher, awesome programmer</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>
+</html>
