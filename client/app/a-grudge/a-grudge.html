@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 </head>
 <div style="background-color: white">
-  <nav class="teal darken-4" role="navigation">
-    <div class="nav-wrapper container">
+  <nav role="navigation">
+    <div class="nav-wrapper blue">
       <ul class="right">
         <li><a ui-sref="grudges({user: vm.userName})">Your Grudges</a></li>
         <li ><a href="#">Log Out</a></li>
@@ -21,10 +21,10 @@
     <h5>Are they forgiven?</h5>
     <div ng-if="!vm.grudge.forgiven" class="center">
       <a ng-click="vm.changeForgive()" class="green darken-4 btn btn-large" style="margin-top: 20px; width: 40%"><i class="material-icons left">thumb_up</i>Forgiven, not forgotten</a>
-      <a ui-sref="grudges({user: vm.userName})" class="red darken-4 btn btn-large" style="margin-top: 20px; width: 40%"><i class="material-icons left">thumb_down</i>Nah, back to grudges</a>
+      <a ui-sref="grudges({user: vm.userName})" class="red darken-2 btn btn-large" style="margin-top: 20px; width: 40%"><i class="material-icons left">thumb_down</i>Nah, back to grudges</a>
     </div>
     <div ng-if="vm.grudge.forgiven" class="center">
-      <a ui-sref="grudges({user: vm.userName})" class="green darken-4 btn btn-large" style="margin-top: 20px; width: 40%"><i class="material-icons left">thumb_up</i>We're cool, back to grudges</a>
+      <a ui-sref="grudges({user: vm.userName})" class="green darken-2 btn btn-large" style="margin-top: 20px; width: 40%"><i class="material-icons left">thumb_up</i>We're cool, back to grudges</a>
       <a ng-click="vm.changeForgive()" class="red darken-4 btn btn-large" style="margin-top: 20px; width: 40%"><i class="material-icons left">thumb_down</i>Forgiveness, revoked</a>
     </div>
   <br>

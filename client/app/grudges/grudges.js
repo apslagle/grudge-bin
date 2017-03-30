@@ -73,5 +73,13 @@
         return key[a[property] < b[property]];
       });
     }
+
+    vm.toggleSearch = function(){
+      vm.searchToggle = !vm.searchToggle;
+    }
+
+    vm.toggleAdd = function() {
+      vm.addToggle = !vm.addToggle;
+    }
   }
 }());

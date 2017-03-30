@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 </head>
-<nav class="teal darken-4" role="navigation">
-  <div class="nav-wrapper container">
+<nav role="navigation">
+  <div class="nav-wrapper blue">
     <ul class="right">
       <li><a ui-sref="grudges({user: vm.userName})">Your Grudges</a></li>
       <li ><a href="#">Log Out</a></li>
@@ -44,8 +44,8 @@
       <input id="search" type="text" class="validate" ng-model="vm.search">
       <label for="search" data-error="wrong" data-success="right">Search</label>
     </div>
-    <div class="btn teal darken-4" style="display: inline-block; width: 25%" ng-click="vm.sortBy('madSince')">Date of Offense</div>
-    <div class="btn teal darken-4" style="display: inline-block; width: 25%" ng-click="vm.sortBy('offender')">Offender</div>
+    <div class="btn" style="display: inline-block; width: 25%" ng-click="vm.sortBy('madSince')">Date of Offense</div>
+    <div class="btn" style="display: inline-block; width: 25%" ng-click="vm.sortBy('offender')">Offender</div>
   </div>
   <br>
   <div ng-repeat="grudge in vm.grudges | filter:vm.search">
@@ -54,10 +54,10 @@
         <li class="collection-item avatar">
           <div ui-sref="grudge({user: vm.userName, gid: grudge.id, grudge: grudge})">
             <div ng-if="!grudge.forgiven">
-              <i class="material-icons circle red darken-4">thumb_down</i>
+              <i class="material-icons circle red darken-2">thumb_down</i>
             </div>
             <div ng-if="grudge.forgiven">
-              <i class="material-icons circle green darken-4">thumb_up</i>
+              <i class="material-icons circle green darken-2">thumb_up</i>
             </div>
             <h4 class="title">{{grudge.offender}}</h4>
             <p class="center" for="{{grudge.id}}" style="display: initial;">{{grudge.offense}}<br>
