@@ -32,8 +32,9 @@ module.exports = function(app, express, db){
         id: req.params.id
       }
     })
-      .then(function(grudges) {
-        res.send(grudges);
+      .then(function(grudge) {
+        console.log(grudge.dataValues);
+        res.send(grudge.dataValues);
       })
   });
 

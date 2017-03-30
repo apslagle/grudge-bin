@@ -62,6 +62,7 @@
       findOrCreateUser: findOrCreateUser,
       deleteUser: deleteUser,
       getUserGrudges: getUserGrudges,
+      getOneGrudge: getOneGrudge,
       createGrudge: createGrudge,
       updateGrudge: updateGrudge,
       deleteGrudge: deleteGrudge
