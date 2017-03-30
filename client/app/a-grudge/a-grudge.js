@@ -15,8 +15,6 @@
         GrudgeFactory.getOneGrudge($stateParams.gid)
           .then(grudge => {
             vm.grudge = grudge.data;
-            console.log(grudge);
-            //return GrudgeFactory.getUserGrudges(user.data[0].id)
           })
       })();
     }
@@ -24,10 +22,6 @@
     vm.changeForgive = function() {
       vm.grudge.forgiven = !vm.grudge.forgiven;
       GrudgeFactory.updateGrudge($stateParams.gid, {forgiven: vm.grudge.forgiven});
-    }
-
-    vm.test = function() {
-      console.log(vm.user);
     }
   }
 }());

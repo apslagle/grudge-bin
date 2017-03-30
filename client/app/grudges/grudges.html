@@ -35,23 +35,20 @@
     <span style="display: inline-block; width: 22%" class="flow-text">{{vm.forgiven}} forgiven</span>
     <span style="display: inline-block; width: 22%" class="flow-text">{{vm.unforgiven}} unforgiven</span>
   </div>
+  <br>
+  <div class="center">
+    <h5 class="text-center">Search and Order Your Grudges</h5>
+  </div>
   <div class="row center">
-    <div class="input-field">
-      <select>
-        <option value="" disabled selected>Order of Grudges</option>
-        <option value="0">Most Recent First</option>
-        <option value="1">Sort By Name</option>
-      </select>
+    <div class="input-field inline" style="display: inline-block; width: 30%">
+      <input id="search" type="text" class="validate" ng-model="vm.search">
+      <label for="search" data-error="wrong" data-success="right">Search</label>
     </div>
-    <select class="browser-default" ng-model="vm.alphabet">
-      <option value="" disabled selected>Order of Grudges</option>
-      <option value="false">Most Recent First</option>
-      <option value="true">Sort By Name</option>
-    </select>
+    <div class="btn teal darken-4" style="display: inline-block; width: 25%" ng-click="vm.sortBy('madSince')">Date of Offense</div>
+    <div class="btn teal darken-4" style="display: inline-block; width: 25%" ng-click="vm.sortBy('offender')">Offender</div>
   </div>
   <br>
-
-  <div ng-repeat="grudge in vm.grudges | filter:{}">
+  <div ng-repeat="grudge in vm.grudges | filter:vm.search">
     <div class="collapsible-header" style="padding-right: 0px">
       <ul class="collection with-header">
         <li class="collection-item avatar">

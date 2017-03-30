@@ -10,7 +10,7 @@
     vm.grudgeCount = 0;
     vm.forgiven = 0;
     vm.unforgiven = 0;
-    vm.alphabet = false
+    vm.alphabet = '0';
     vm.userName = $stateParams.user;
     vm.render = function() {
       GrudgeFactory.findOrCreateUser(vm.userName)
@@ -20,7 +20,6 @@
         })
         .then(grudges => {
           vm.grudges = grudges.data;
-          console.log(vm.grudges);
           vm.correctCount();
         })
     };
@@ -65,6 +64,14 @@
       var id = vm.currentDeleteGrudge.id;
       vm.grudges = vm.grudges.filter(grudge => grudge.id !== id);
       GrudgeFactory.deleteGrudge(id);
+    }
+
+    vm.sortBy = function(property) {
+      console.log("hit");
+      vm.grudges = vm.grudges.sort((a, b) => {
+        var key = {true: -1, false:1}
+        return key[a[property] < b[property]];
+      });
     }
   }
 }());

@@ -14,11 +14,11 @@
     </div>
   </nav>
   <div class="center">
-    <h3 class="tk-pollen-web">You hold a grudge against</h3>
+    <h5 class="tk-pollen-web">You hold a grudge against</h5>
     <h2>{{vm.grudge.offender}}</h2>
     <h5>The offense:</h5>
-    <h4>{{vm.grudge.offense}}</h4>
-    <h6>Are they forgiven?</h6>
+    <h3>{{vm.grudge.offense}}</h3>
+    <h5>Are they forgiven?</h5>
     <div ng-if="!vm.grudge.forgiven" class="center">
       <a ng-click="vm.changeForgive()" class="green darken-4 btn btn-large" style="margin-top: 20px; width: 40%"><i class="material-icons left">thumb_up</i>Forgiven, not forgotten</a>
       <a ui-sref="grudges({user: vm.userName})" class="red darken-4 btn btn-large" style="margin-top: 20px; width: 40%"><i class="material-icons left">thumb_down</i>Nah, back to grudges</a>
