@@ -59,7 +59,5 @@
       vm.forgiven = count.forgiven;
       vm.unforgiven = count.unforgiven;
     }
-
-    //vm.correctCount()
   }
 }());
