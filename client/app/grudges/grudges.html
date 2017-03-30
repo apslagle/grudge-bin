@@ -15,7 +15,10 @@
 <div class="container" style="background-color: white">
   <div class="container">
     <h1 class="ldblue text-darken-2 tk-pollen-web center">{{vm.userName}}'s Grudges</h1>
-    <div class="row ldblue center">
+    <span class="center" style="cursor: pointer;" ng-click="vm.toggleAdd()">
+      <h5 class="text-center">Add a Grudge</h5>
+    </span>
+    <div ng-if="vm.addToggle" class="row ldblue center">
       <span input-field style="display: inline-block;width: 30%">
         <input id="grudge-offender" type="text" ng-model="vm.offender">
         <label>Who crossed you?</label>
@@ -28,6 +31,7 @@
         <a class="btn-floating secondary-content btn-small waves-effect waves-light red darken-4" ng-disabled="!vm.offender.length || !vm.offense.length" ng-click="vm.submitGrudge()"><i class="material-icons">add</i></a>
       </span>
     </div>
+    <br>
   </div>
   <div class="row center" style="margin-top: 10px">
     <span style="display: inline-block; width: 22%" class="tk-pollen-web flow-text ldblue ">Grudge Count:</span>
@@ -36,10 +40,10 @@
     <span style="display: inline-block; width: 22%" class="flow-text">{{vm.unforgiven}} unforgiven</span>
   </div>
   <br>
-  <div class="center">
+  <span class="center" style="cursor: pointer;" ng-click="vm.toggleSearch()">
     <h5 class="text-center">Search and Order Your Grudges</h5>
-  </div>
-  <div class="row center">
+  </span>
+  <div ng-if="vm.searchToggle" class="row center">
     <div class="input-field inline" style="display: inline-block; width: 30%">
       <input id="search" type="text" class="validate" ng-model="vm.search">
       <label for="search" data-error="wrong" data-success="right">Search</label>
