@@ -35,32 +35,41 @@
     <span style="display: inline-block; width: 22%" class="flow-text">{{vm.forgiven}} forgiven</span>
     <span style="display: inline-block; width: 22%" class="flow-text">{{vm.unforgiven}} unforgiven</span>
   </div>
+  <div class="row center">
+    <div class="input-field">
+      <select>
+        <option value="" disabled selected>Order of Grudges</option>
+        <option value="0">Most Recent First</option>
+        <option value="1">Sort By Name</option>
+      </select>
+    </div>
+    <select class="browser-default" ng-model="vm.alphabet">
+      <option value="" disabled selected>Order of Grudges</option>
+      <option value="false">Most Recent First</option>
+      <option value="true">Sort By Name</option>
+    </select>
+  </div>
   <br>
 
   <div ng-repeat="grudge in vm.grudges | filter:{}">
     <div class="collapsible-header" style="padding-right: 0px">
       <ul class="collection with-header">
-        <li class="collection-item avatar" ui-sref="grudge({user: vm.userName, gid: grudge.id, grudge: grudge})">
-          <div ng-if="!grudge.forgiven">
-            <i class="material-icons circle red darken-4">thumb_down</i>
-          </div>
-          <div ng-if="grudge.forgiven">
-            <i class="material-icons circle green darken-4">thumb_up</i>
-          </div>
-          <h4 class="title">{{grudge.offender}}</h4>
-          <p class="center" for="{{grudge.id}}" style="display: initial;">{{grudge.offense}}<br>
-          Known to be a jerk since {{vm.formatDate(grudge.madSince)}}
-          </p>
-          <a data-target="deleteGoalModal" class="secondary-content" style="color: black;" modal>
-            <i tooltipped data-position="bottom" data-delay="100" data-tooltip="Delete Grudge" ng-click="vm.currentDeleteGoal = grudge" class="large material-icons right" data-target="deleteGoalModal" style="margin: 10px 15px 10px 0px;">delete_forever</i>
-          </a>
-          <div id="deleteGoalModal" class="modal" style="width: 40%; height: 25%;">
-            <div class="modal-content center">
-              <span class="tk-pollen-web ldblue" style="font-size: 125%;">Are you sure you want to delete your grudge?</span>
-              <br>
-              <a class="waves-effect waves-light light-blue darken-4 btn modal-action modal-close tk-pollen-web" ng-click="vm.deleteGoal(vm.currentDeleteGoal.id)" style="color:white;">Yes</a>
-              <a class="waves-effect waves-light light-blue darken-4 btn modal-action modal-close tk-pollen-web" style="color:white;">No</a>
+        <li class="collection-item avatar">
+          <div ui-sref="grudge({user: vm.userName, gid: grudge.id, grudge: grudge})">
+            <div ng-if="!grudge.forgiven">
+              <i class="material-icons circle red darken-4">thumb_down</i>
             </div>
+            <div ng-if="grudge.forgiven">
+              <i class="material-icons circle green darken-4">thumb_up</i>
+            </div>
+            <h4 class="title">{{grudge.offender}}</h4>
+            <p class="center" for="{{grudge.id}}" style="display: initial;">{{grudge.offense}}<br>
+            Known to be a jerk since {{vm.formatDate(grudge.madSince)}}
+            </p>
+          </div>
+          <a class="secondary-content" style="color: black;" modal>
+            <i data-ng-click="vm.currentDeleteGrudge = grudge; vm.delete()" class="large material-icons right" style="margin: 10px 15px 10px 0px;">delete_forever</i>
+          </a>
           </div>
         </li>
       </ul>

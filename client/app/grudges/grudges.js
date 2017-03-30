@@ -10,6 +10,7 @@
     vm.grudgeCount = 0;
     vm.forgiven = 0;
     vm.unforgiven = 0;
+    vm.alphabet = false
     vm.userName = $stateParams.user;
     vm.render = function() {
       GrudgeFactory.findOrCreateUser(vm.userName)
@@ -58,6 +59,12 @@
       vm.grudgeCount = count.grudgeCount;
       vm.forgiven = count.forgiven;
       vm.unforgiven = count.unforgiven;
+    }
+
+    vm.delete = function() {
+      var id = vm.currentDeleteGrudge.id;
+      vm.grudges = vm.grudges.filter(grudge => grudge.id !== id);
+      GrudgeFactory.deleteGrudge(id);
     }
   }
 }());
